@@ -1,0 +1,31 @@
+from collections import deque
+
+class Cola:
+    def __init__(self):
+        self.items = deque()
+
+    def esta_vacia(self):
+        return len(self.items) == 0
+
+    def encolar(self, elemento):
+        self.items.append(elemento)
+
+    def desencolar(self):
+        if self.esta_vacia():
+            return None
+        return self.items.popleft()
+
+
+# Ejemplo de uso de la cola
+cola = Cola()
+
+# Encolar elementos
+cola.encolar(1)
+cola.encolar(2)
+cola.encolar(3)
+
+# Desencolar elementos
+print(cola.desencolar())  # Salida: 1
+print(cola.desencolar())  # Salida: 2
+print(cola.desencolar())  # Salida: 3
+print(cola.desencolar())  # Salida: None, ya que la cola está vacía
